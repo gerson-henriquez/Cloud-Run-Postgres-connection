@@ -54,3 +54,45 @@ def querydabase():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
+#Using pycopg2
+# import psycopg2
+# import os
+# from flask import Flask
+# from psycopg2 import sql
+
+
+# app = Flask(__name__)
+
+# db_host = "10.21.0.3"
+# db_name = "guestbook"
+# db_user = "postgres"
+# db_password = "123456"
+
+# def connect_to_db():
+#     conn = psycopg2.connect(
+#         dbname=db_name,
+#         user=db_user,
+#         password=db_password,
+#         host=db_host
+#     )
+#     return conn
+
+# @app.route("/")
+# def querydabase():
+#     conn = None
+#     # Connect to the PostgreSQL server
+#     conn = connect_to_db()  # Change this line
+#     print('connection stablished')
+#     # Create a new cursor
+#     cur = conn.cursor()
+#     query = sql.SQL("SELECT * FROM entries")
+#     cur.execute(query)
+#     conn.commit()
+#     print(cur.fetchone())
+#         # Close communication with the server
+
+#     return str(cur.fetchone())
+
+# if __name__ == "__main__":
+#     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
